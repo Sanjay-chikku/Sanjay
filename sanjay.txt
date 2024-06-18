@@ -1,0 +1,206 @@
+import java.text.ParseException;
+class JavaApplication1{
+    static void findWaitingTime(int process[],int n, int bt[],int wt[]){
+        wt[0]=0;
+        for(int i=1;i<n;i++){
+            wt[i]=bt[i-1]+wt[i-1];
+        }
+    }
+     static void findTurnaroundTime(int process[],int n, int bt[],int wt[],int tat[]){
+        for(int i=0;i<n;i++){
+            tat[i]=bt[i]+wt[i];
+        }
+    }
+      static void findavgTime(int process[],int n, int bt[]){
+        int wt[]=new int[n],tat[]=new int[n];
+        int total_wt=0,total_tat=0;
+        findWaitingTime(process,n,bt,wt);
+        findTurnaroundTime(process,n,bt,wt,tat);
+        System.out.println("Process  Burst_time   Waitingtime turnaroundtime\n ");
+        for(int i=0;i<n;i++){
+            total_wt=total_wt+wt[i];
+            total_tat=total_tat+tat[i];
+            System.out.printf(" %d ",(i+1));
+            System.out.printf("       %d ",bt[i]);
+            System.out.printf("          %d ",wt[i]);
+            System.out.printf("              %d\n ",tat[i]);
+        }
+        float s = (float)total_wt/(float)n;
+        int t = total_tat/n;
+        System.out.printf("\nAvg waiting time = %f",s);
+        System.out.printf("\n");
+        System.out.printf("Avg Turn around time= %d",t);
+        System.out.println();
+    }
+      public static void main(String[]args)throws ParseException{
+          int process [] ={1,2,3};
+          int n = process.length;
+          int burst_time[] = {10,5,8};
+          findavgTime(process,n,burst_time);
+      }
+}
+
+
+########################################################################################################################################
+
+
+
+#include <stdio.h>
+
+#include <stdlib.h>
+
+#define SIZE 4
+
+int top = -1, inp_array[SIZE];
+void push();
+void pop();
+void show();
+
+int main()
+{
+    int choice;
+
+    while (1)
+    {
+        printf("\nPerform operations on the stack:");
+        printf("\n1.Push the element\n2.Pop the element\n3.Show\n4.End");
+        printf("\n\nEnter the choice: ");
+        scanf("%d", &choice);
+
+        switch (choice)
+        {
+        case 1:
+            push();
+            break;
+        case 2:
+            pop();
+            break;
+        case 3:
+            show();
+            break;
+        case 4:
+            exit(0);
+
+        default:
+            printf("\nInvalid choice!!");
+        }
+    }
+}
+
+void push()
+{
+    int x;
+
+    if (top == SIZE - 1)
+    {
+        printf("\nOverflow!!");
+    }
+    else
+    {
+        printf("\nEnter the element to be added onto the stack: ");
+        scanf("%d", &x);
+        top = top + 1;
+        inp_array[top] = x;
+    }
+}
+
+void pop()
+{
+    if (top == -1)
+    {
+        printf("\nUnderflow!!");
+    }
+    else
+    {
+        printf("\nPopped element: %d", inp_array[top]);
+        top = top - 1;
+    }
+}
+
+void show()
+{
+    if (top == -1)
+    {
+        printf("\nUnderflow!!");
+    }
+    else
+    {
+        printf("\nElements present in the stack: \n");
+        for (int i = top; i >= 0; --i)
+            printf("%d\n", inp_array[i]);
+    }
+}
+
+
+
+#################################################################################################################################################################################################################
+
+
+git clone https://github.com/sanjay/sample.git
+
+fetch:
+
+git fetch --all
+git fetch --append
+git fetch --multiple
+git fetch --dry-run
+
+git remote add repo https://github.com/sanjay/sample.git
+
+git fetch repo
+
+git branch a1
+
+git branch -M a1
+
+git checkout -b a2
+
+git branch -d a1
+
+git pull origin main
+
+git reset --soft
+
+
+##################################################################################################################################################################################################################33
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample HTML Page</title>
+</head>
+<body>
+    <header>
+        <h1>Welcome to My Sample HTML Page</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>About This Page</h2>
+            <p>This is a simple HTML document created as a sample. It contains basic HTML elements like headings, paragraphs, images, and lists.</p>
+        </section>
+
+        <section>
+            <h2>Sample Image</h2>
+            <img src="https://via.placeholder.com/150" alt="Sample Image">
+        </section>
+
+        <section>
+            <h2>Sample List</h2>
+            <ul>
+                <li>First item</li>
+                <li>Second item</li>
+                <li>Third item</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 My Sample HTML Page</p>
+    </footer>
+</body>
+</html>
